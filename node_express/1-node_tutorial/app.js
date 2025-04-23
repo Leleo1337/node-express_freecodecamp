@@ -1,17 +1,10 @@
-import http from 'http'
+// manual approach ( create package.json in root, create proprieties etc )
+// npm init ( step by step, press enter to skip )
+// npm init -y ( everything default )
 
-const server = http.createServer((req,res) => {
-    if(req.url == '/'){
-        res.end('Welcome to our home page')
-    }
-    if(req.url == '/about'){
-        res.end('Here is our short history')
-    }
-    res.end(`
-    <h1>Oops!</h1>
-    <p>We cant seem to find the page you are looking for</p>
-    <a href='/'>Back home </a>
-    `)
-})
+const _ = require('lodash')
 
-server.listen(5000, () => console.log(`server running on port ${5000}`))
+const items = [1,[2,[3,[4]]]]
+const newItems = _.flattenDeep(items)
+
+console.log(newItems)
